@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-mapping>
+	<class name="av.demo.hibernate.m2m.modal.Student" table="student">
+		<id name="studentId" column="studentid" />
+		<property name="studentName" column="studentname" length="20" />
+		<property name="marks" />
+
+		<set name="courses" cascade="all" table="students_courses">
+			<key column="student_id " />
+			<many-to-many class="av.demo.hibernate.m2m.modal.Course" column="course_id" />
+		</set>
+
+	</class>
+
+</hibernate-mapping>

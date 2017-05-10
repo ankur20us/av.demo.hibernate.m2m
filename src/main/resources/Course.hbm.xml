@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="av.demo.hibernate.m2m.modal.Course" table="courses">
+		<id name="courseId" column="courseid" />
+		<property name="courseName" column="coursename" length="20" />
+		<property name="duration" />
+
+		<set name="students" inverse="false" cascade="all" table="students_courses">
+			<key column="course_id" />
+			<many-to-many class="av.demo.hibernate.m2m.modal.Student" column="student_id " />
+		</set>
+
+	</class>
+
+</hibernate-mapping>
